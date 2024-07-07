@@ -6,7 +6,7 @@
     "declaration": true,
     "target": "es6",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "moduleResolution": "node",
   },
   "exclude": [
