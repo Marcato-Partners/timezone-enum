@@ -1,10 +1,13 @@
 {
   "name": "@marcatopartners/timezone-enum",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Lightweight timezone enum for JavaScript or TypeScript.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "build": "tsc"
   },
