@@ -1,17 +1,31 @@
 {
   "name": "@marcatopartners/timezone-enum",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Lightweight timezone enum for JavaScript or TypeScript.",
   "main": "./dist/cjs/index.js",
-  "types": "./dist/esm/index.d.ts",
   "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "./dist"
   ],
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:markers",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.json"
+    "build:esm": "tsc -p tsconfig.json",
+    "build:markers": "node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'}, null, 2)); require('fs').writeFileSync('dist/esm/package.json', JSON.stringify({type:'module'}, null, 2));\""
   },
   "keywords": [
     "timezones"
